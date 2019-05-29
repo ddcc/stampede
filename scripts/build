@@ -3,4 +3,4 @@
 set -e
 
 find . -mindepth 1 -maxdepth 1 -type d -name 'run-*' -print0 \
-  | xargs -0 -I :: -- make -C ::
+  | xargs -0 -I :: -- make -j -C ::

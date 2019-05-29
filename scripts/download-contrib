@@ -5,12 +5,12 @@
 # Parameters:
 # - SOURCE_DIR: absolute path to Stampede source directory
 
-GALOIS_URL=http://iss.ices.utexas.edu/projects/galois/downloads/Galois-2.2.1.tar.gz
+GALOIS_URL=https://iss.oden.utexas.edu/projects/galois/downloads/Galois-2.2.1.tar.gz
 GALOIS_SHA256=d98ffcc59ab433d7ef977c3862b1c73f7a0cdc75610ce5c2df8ee5ba296d5553
-TINYSTM_URL=http://tmware.org/sites/tmware.org/files/tinySTM/tinySTM-1.0.4.tgz
-TINYSTM_SHA256=84bcf1a4d98c443817b1d169b8509d8044126b3f96699adcd71c2f98ab2ae67c
+TINYSTM_URL=http://wwwa.unine.ch/iiun/cs/tmware/sites/tmware.org/files/tinySTM/tinySTM-1.0.5.tgz.gz
+TINYSTM_SHA256=f84fd226f99659a1ff37b837e780db339b1ebb6e2c9a2deec76869b2f40be73f
 STAMP_URL=https://github.com/kozyraki/stamp
-STAMP_0910_COMMIT=9222e2707e598448d90112991a3a90544469d4b4 
+STAMP_0910_COMMIT=9222e2707e598448d90112991a3a90544469d4b4
 PARSEC_URL=http://parsec.cs.princeton.edu/download/2.1/parsec-2.1-core.tar.gz
 PARSEC_SHA256=9f31d7be8010d59931acc9e6fbe8a422b6df50f6c6d3711f2974c397fb0aeb68
 
@@ -20,25 +20,25 @@ SOURCE_DIR=${SOURCE_DIR:-/src}
 
 if [[ ! -e "${SOURCE_DIR}/Galois-2.2.1/.patched" ]]; then
   (cd ${SOURCE_DIR} \
-   && curl -o data.tar.gz ${GALOIS_URL} \
-   && echo "${GALOIS_SHA256}  data.tar.gz" | sha256sum -c - \
-   && tar xzf data.tar.gz && rm data.tar.gz \
+   && curl -o galois.tar.gz ${GALOIS_URL} \
+   && echo "${GALOIS_SHA256}  galois.tar.gz" | sha256sum -c - \
+   && tar xzf galois.tar.gz && rm galois.tar.gz \
    && patch -p0 < ${SOURCE_DIR}/patches/Galois-2.2.1.patch)
 fi
 
-if [[ ! -e "${SOURCE_DIR}/tinySTM-1.0.4/.patched" ]]; then
+if [[ ! -e "${SOURCE_DIR}/tinySTM-1.0.5/.patched" ]]; then
   (cd ${SOURCE_DIR} \
-   && curl -o data.tar.gz ${TINYSTM_URL} \
-   && echo "${TINYSTM_SHA256}  data.tar.gz" | sha256sum -c - \
-   && tar xzf data.tar.gz && rm data.tar.gz \
-   && patch -p0 < ${SOURCE_DIR}/patches/tinySTM-1.0.4.patch)
+   && curl -o tinystm.tar.gz ${TINYSTM_URL} \
+   && echo "${TINYSTM_SHA256}  tinystm.tar.gz" | sha256sum -c - \
+   && tar xzf tinystm.tar.gz && rm tinystm.tar.gz \
+   && patch -p0 < ${SOURCE_DIR}/patches/tinySTM-1.0.5.patch)
 fi
 
 if [[ ! -e "${SOURCE_DIR}/benchmarks/parsec-2.1/.patched" ]]; then
   (cd "${SOURCE_DIR}/benchmarks" \
-   && curl -o data.tar.gz ${PARSEC_URL} \
-   && echo "${PARSEC_SHA256}  data.tar.gz" | sha256sum -c - \
-   && tar xzf data.tar.gz && rm data.tar.gz \
+   && curl -o parsec.tar.gz ${PARSEC_URL} \
+   && echo "${PARSEC_SHA256}  parsec.tar.gz" | sha256sum -c - \
+   && tar xzf parsec.tar.gz && rm parsec.tar.gz \
    && patch -p0 < ${SOURCE_DIR}/patches/parsec-2.1.patch)
 fi
 

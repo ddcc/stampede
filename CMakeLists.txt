@@ -28,7 +28,7 @@ endif()
 
 ExternalProject_Add(tinystm
   PREFIX tinystm
-  SOURCE_DIR ${PROJECT_SOURCE_DIR}/tinySTM-1.0.4
+  SOURCE_DIR ${PROJECT_SOURCE_DIR}/tinySTM-1.0.5
   CMAKE_ARGS 
     -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
     -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/tinystm)
@@ -43,6 +43,7 @@ ExternalProject_Get_Property(tinystm install_dir)
 set(tinystm_install_dir ${install_dir})
 
 ExternalProject_Add(Galois
+  DEPENDS tinystm
   PREFIX Galois
   SOURCE_DIR ${PROJECT_SOURCE_DIR}/Galois-2.2.1
   CMAKE_ARGS
@@ -74,6 +75,7 @@ ExternalProject_Get_Property(Galois install_dir)
 set(galois_install_dir ${install_dir})
 
 ExternalProject_Add(benchmarks
+  DEPENDS tinystm Galois
   PREFIX benchmarks
   SOURCE_DIR ${PROJECT_SOURCE_DIR}/benchmarks
   CMAKE_ARGS

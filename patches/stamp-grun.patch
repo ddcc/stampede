@@ -7640,7 +7640,7 @@ diff -x .git -x inputs -Naur stamp-0.9.10/kmeans/normal.cpp stamp-grun/kmeans/no
 +
 +
 +    void operator()(long i, Galois::UserContext<long>& ctx) {
-+        //TM_THREAD_ENTER();
++        TM_THREAD_ENTER();
 +        int     npoints         = args->npoints;
 +        int phase = i < npoints ? 0 : 1;
 +        switch (phase) {
@@ -10086,15 +10086,11 @@ diff -x .git -x inputs -Naur stamp-0.9.10/lib/tm.h stamp-grun/lib/tm.h
  
 -#  define TM_THREAD_ENTER()             /* nothing */
 -#  define TM_THREAD_EXIT()              /* nothing */
-+#define TM_STARTUP(numThread)         /* nothing */
-+#define TM_SHUTDOWN()                 /* nothing */
  
 -#  define TM_BEGIN()                    /* nothing */
 -#  define TM_BEGIN_RO()                 /* nothing */
 -#  define TM_END()                      /* nothing */
 -#  define TM_RESTART()                  assert(0)
-+#define TM_THREAD_ENTER()             /* nothing */
-+#define TM_THREAD_EXIT()              /* nothing */
  
 -#  define TM_EARLY_RELEASE(var)         /* nothing */
 -
@@ -10112,6 +10108,12 @@ diff -x .git -x inputs -Naur stamp-0.9.10/lib/tm.h stamp-grun/lib/tm.h
  #  define TM_LOCAL_WRITE_P(var, val)    ({var = val; var;})
  #  define TM_LOCAL_WRITE_F(var, val)    ({var = val; var;})
 +#  define TM_RESTART()                  stm_abort(0)
++
++#  define TM_STARTUP(numThread)         stm_init()
++#  define TM_SHUTDOWN()                 stm_exit()
++
++#  define TM_THREAD_ENTER()             stm_init_thread()
++#  define TM_THREAD_EXIT()              stm_exit_thread()
  
  #else /* !STM */
  
@@ -10120,6 +10122,12 @@ diff -x .git -x inputs -Naur stamp-0.9.10/lib/tm.h stamp-grun/lib/tm.h
  #  define TM_LOCAL_WRITE_P(var, val)    ({var = val; var;})
  #  define TM_LOCAL_WRITE_F(var, val)    ({var = val; var;})
 +#  define TM_RESTART()                  abort()
++
++#  define TM_STARTUP(numThread)         /* nothing */
++#  define TM_SHUTDOWN()                 /* nothing */
++
++#  define TM_THREAD_ENTER()             /* nothing */
++#  define TM_THREAD_EXIT()              /* nothing */
  
  #endif /* !STM */
  

@@ -1,11 +1,11 @@
-diff -x .git -Naur tinySTM-1.0.4-prepatch/.patched tinySTM-1.0.4/.patched
---- tinySTM-1.0.4-prepatch/.patched	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/.patched	2017-03-21 21:04:38.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/.patched tinySTM-1.0.5/.patched
+--- tinySTM-1.0.5-prepatch/.patched	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/.patched	2017-03-21 21:04:38.000000000 +0000
 @@ -0,0 +1 @@
 +patched
-diff -x .git -Naur tinySTM-1.0.4-prepatch/CMakeLists.txt tinySTM-1.0.4/CMakeLists.txt
---- tinySTM-1.0.4-prepatch/CMakeLists.txt	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/CMakeLists.txt	2017-03-21 14:50:38.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/CMakeLists.txt tinySTM-1.0.5/CMakeLists.txt
+--- tinySTM-1.0.5-prepatch/CMakeLists.txt	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/CMakeLists.txt	2017-03-21 14:50:38.000000000 +0000
 @@ -0,0 +1,326 @@
 +cmake_minimum_required(VERSION 2.8.8)
 +
@@ -333,9 +333,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/CMakeLists.txt tinySTM-1.0.4/CMakeList
 +  PATTERN ".svn" EXCLUDE)
 +install(FILES tinystm-config.cmake DESTINATION "cmake/tinystm")
 +install(EXPORT tinystm DESTINATION "cmake/tinystm" COMPONENT dev)
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/CMakeLists.txt tinySTM-1.0.4/src/CMakeLists.txt
---- tinySTM-1.0.4-prepatch/src/CMakeLists.txt	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/CMakeLists.txt	2017-03-21 10:22:14.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/CMakeLists.txt tinySTM-1.0.5/src/CMakeLists.txt
+--- tinySTM-1.0.5-prepatch/src/CMakeLists.txt	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/CMakeLists.txt	2017-03-21 10:22:14.000000000 +0000
 @@ -0,0 +1,12 @@
 +include_directories(atomic_ops)
 +include_directories(.)
@@ -349,9 +349,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/CMakeLists.txt tinySTM-1.0.4/src/C
 +  RUNTIME DESTINATION bin COMPONENT bin
 +  LIBRARY DESTINATION lib COMPONENT shlib
 +  ARCHIVE DESTINATION lib COMPONENT dev)
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/aligned_atomic_load_store.h tinySTM-1.0.4/src/atomic_ops/aligned_atomic_load_store.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/aligned_atomic_load_store.h	2010-06-04 14:48:47.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/aligned_atomic_load_store.h	1970-01-01 01:00:00.000000000 +0100
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/aligned_atomic_load_store.h tinySTM-1.0.5/src/atomic_ops/aligned_atomic_load_store.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/aligned_atomic_load_store.h	2010-06-04 14:48:47.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/aligned_atomic_load_store.h	1970-01-01 01:00:00.000000000 +0100
 @@ -1,46 +0,0 @@
 -/*
 - * Copyright (c) 2003 Hewlett-Packard Development Company, L.P.
@@ -399,9 +399,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/aligned_atomic_load_sto
 -}
 -
 -#define AO_HAVE_store
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/all_acquire_release_volatile.h tinySTM-1.0.4/src/atomic_ops/all_acquire_release_volatile.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/all_acquire_release_volatile.h	2010-06-04 14:48:47.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/all_acquire_release_volatile.h	1970-01-01 01:00:00.000000000 +0100
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/all_acquire_release_volatile.h tinySTM-1.0.5/src/atomic_ops/all_acquire_release_volatile.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/all_acquire_release_volatile.h	2010-06-04 14:48:47.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/all_acquire_release_volatile.h	1970-01-01 01:00:00.000000000 +0100
 @@ -1,168 +0,0 @@
 -/*
 - * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -571,9 +571,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/all_acquire_release_vol
 -  *p = val;
 -}
 -#define AO_HAVE_int_store_release
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/ao_t_is_int.h tinySTM-1.0.4/src/atomic_ops/ao_t_is_int.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/ao_t_is_int.h	2010-06-04 14:48:47.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/ao_t_is_int.h	1970-01-01 01:00:00.000000000 +0100
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/ao_t_is_int.h tinySTM-1.0.5/src/atomic_ops/ao_t_is_int.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/ao_t_is_int.h	2010-06-04 14:48:47.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/ao_t_is_int.h	1970-01-01 01:00:00.000000000 +0100
 @@ -1,126 +0,0 @@
 -/*
 - * Copyright (c) 2003-2004 Hewlett-Packard Development Company, L.P.
@@ -701,9 +701,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/ao_t_is_int.h tinySTM-1
 -        (int)AO_fetch_and_sub1_release((volatile AO_t *)(addr))
 -#  define AO_HAVE_int_fetch_and_sub1_release
 -# endif
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/ao_version.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/ao_version.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/ao_version.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/ao_version.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/ao_version.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/ao_version.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/ao_version.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/ao_version.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,30 @@
 +/*
 + * Copyright (c) 2003-2004 Hewlett-Packard Development Company, L.P.
@@ -735,9 +735,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/ao_version.h
 +#define AO_VERSION_MAJOR 7
 +#define AO_VERSION_MINOR 3
 +#define AO_VERSION_ALPHA 3 /* 7.3alpha3 */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/generalize-arithm.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/generalize-arithm.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/generalize-arithm.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/generalize-arithm.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/generalize-arithm.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/generalize-arithm.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/generalize-arithm.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/generalize-arithm.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,3380 @@
 +/*
 + * Copyright (c) 2003-2011 Hewlett-Packard Development Company, L.P.
@@ -4119,9 +4119,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/generalize-a
 +#endif
 +
 +/* and/or/xor_dd_aquire_read are meaningless.     */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/generalize-small.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/generalize-small.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/generalize-small.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/generalize-small.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/generalize-small.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/generalize-small.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/generalize-small.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/generalize-small.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,2600 @@
 +/*
 + * Copyright (c) 2003-2011 Hewlett-Packard Development Company, L.P.
@@ -6723,9 +6723,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/generalize-s
 +  }
 +# define AO_HAVE_double_store_full
 +#endif
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/generalize.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/generalize.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/generalize.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/generalize.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/generalize.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/generalize.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/generalize.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/generalize.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,676 @@
 +/*
 + * Copyright (c) 2003-2011 Hewlett-Packard Development Company, L.P.
@@ -7403,9 +7403,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/generalize.h
 +  }
 +# define AO_HAVE_double_compare_and_swap_full
 +#endif
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_acquire_release_volatile.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/all_acquire_release_volatile.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_acquire_release_volatile.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/all_acquire_release_volatile.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_acquire_release_volatile.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/all_acquire_release_volatile.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_acquire_release_volatile.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/all_acquire_release_volatile.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,30 @@
 +/*
 + * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -7437,9 +7437,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_
 +#include "loadstore/char_acquire_release_volatile.h"
 +#include "loadstore/short_acquire_release_volatile.h"
 +#include "loadstore/int_acquire_release_volatile.h"
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_aligned_atomic_load_store.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/all_aligned_atomic_load_store.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_aligned_atomic_load_store.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/all_aligned_atomic_load_store.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_aligned_atomic_load_store.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/all_aligned_atomic_load_store.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_aligned_atomic_load_store.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/all_aligned_atomic_load_store.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,31 @@
 +/*
 + * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -7472,9 +7472,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_
 +#define AO_ACCESS_short_CHECK_ALIGNED
 +#define AO_ACCESS_int_CHECK_ALIGNED
 +#include "all_atomic_load_store.h"
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_atomic_load_store.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/all_atomic_load_store.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_atomic_load_store.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/all_atomic_load_store.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_atomic_load_store.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/all_atomic_load_store.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_atomic_load_store.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/all_atomic_load_store.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,32 @@
 +/*
 + * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -7508,9 +7508,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_
 +#include "loadstore/char_atomic_store.h"
 +#include "loadstore/short_atomic_store.h"
 +#include "loadstore/int_atomic_store.h"
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_atomic_only_load.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/all_atomic_only_load.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_atomic_only_load.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/all_atomic_only_load.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_atomic_only_load.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/all_atomic_only_load.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_atomic_only_load.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/all_atomic_only_load.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,30 @@
 +/*
 + * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -7542,9 +7542,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/all_
 +#include "loadstore/char_atomic_load.h"
 +#include "loadstore/short_atomic_load.h"
 +#include "loadstore/int_atomic_load.h"
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/ao_t_is_int.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/ao_t_is_int.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/ao_t_is_int.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/ao_t_is_int.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/ao_t_is_int.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/ao_t_is_int.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/ao_t_is_int.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/ao_t_is_int.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,552 @@
 +/*
 + * Copyright (c) 2003-2011 Hewlett-Packard Development Company, L.P.
@@ -8098,9 +8098,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/ao_t
 +                                         (AO_t)(old), (AO_t)(new_val))
 +# define AO_HAVE_int_compare_and_swap_read
 +#endif
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/armcc/arm_v6.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/armcc/arm_v6.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/armcc/arm_v6.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/armcc/arm_v6.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/armcc/arm_v6.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/armcc/arm_v6.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/armcc/arm_v6.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/armcc/arm_v6.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,263 @@
 +/*
 + * Copyright (c) 2007 by NEC LE-IT:               All rights reserved.
@@ -8365,9 +8365,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/armc
 +#endif /* __TARGET_ARCH_ARM >= 6 */
 +
 +#define AO_T_IS_INT
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/emul_cas.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/emul_cas.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/emul_cas.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/emul_cas.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/emul_cas.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/emul_cas.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/emul_cas.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/emul_cas.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,78 @@
 +/*
 + * Copyright (c) 2003 by Hewlett-Packard Company.  All rights reserved.
@@ -8447,9 +8447,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/emul
 +#undef AO_HAVE_store_full
 +#define AO_store_full(addr, val) AO_store_full_emulation(addr, val)
 +#define AO_HAVE_store_full
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/aarch64.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/aarch64.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/aarch64.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/aarch64.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/aarch64.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/aarch64.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/aarch64.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/aarch64.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,199 @@
 +/*
 + * Copyright (c) 1991-1994 by Xerox Corporation.  All rights reserved.
@@ -8650,9 +8650,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/
 +#endif /* __GNUC__ == 4 */
 +
 +#include "generic.h"
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/alpha.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/alpha.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/alpha.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/alpha.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/alpha.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/alpha.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/alpha.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/alpha.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,67 @@
 +/*
 + * Copyright (c) 1991-1994 by Xerox Corporation.  All rights reserved.
@@ -8721,9 +8721,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/
 +#define AO_HAVE_compare_and_swap
 +
 +/* TODO: implement AO_fetch_compare_and_swap */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/arm.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/arm.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/arm.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/arm.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/arm.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/arm.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/arm.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/arm.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,593 @@
 +/*
 + * Copyright (c) 1991-1994 by Xerox Corporation.  All rights reserved.
@@ -9318,9 +9318,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/
 +#endif /* !AO_HAVE_test_and_set[_full] && AO_ARM_HAVE_SWP */
 +
 +#define AO_T_IS_INT
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/avr32.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/avr32.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/avr32.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/avr32.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/avr32.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/avr32.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/avr32.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/avr32.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,71 @@
 +/*
 + * Copyright (C) 2009 Bradley Smith <brad@brad-smith.co.uk>
@@ -9393,9 +9393,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/
 +/* TODO: implement AO_fetch_compare_and_swap.   */
 +
 +#define AO_T_IS_INT
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/cris.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/cris.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/cris.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/cris.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/cris.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/cris.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/cris.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/cris.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,68 @@
 +/*
 + * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -9465,9 +9465,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/
 +    return ret;
 +}
 +#define AO_HAVE_test_and_set_full
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/generic-arithm.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/generic-arithm.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/generic-arithm.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/generic-arithm.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/generic-arithm.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/generic-arithm.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/generic-arithm.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/generic-arithm.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,704 @@
 +/*
 + * Copyright (c) 1991-1994 by Xerox Corporation.  All rights reserved.
@@ -10173,9 +10173,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/
 +  (void)__atomic_xor_fetch(addr, value, __ATOMIC_SEQ_CST);
 +}
 +#define AO_HAVE_xor_full
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/generic-small.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/generic-small.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/generic-small.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/generic-small.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/generic-small.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/generic-small.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/generic-small.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/generic-small.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,280 @@
 +/*
 + * Copyright (c) 1991-1994 by Xerox Corporation.  All rights reserved.
@@ -10457,9 +10457,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/
 +  }
 +# define AO_HAVE_compare_and_swap
 +#endif /* !AO_GENERALIZE_ASM_BOOL_CAS */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/generic.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/generic.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/generic.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/generic.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/generic.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/generic.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/generic.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/generic.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,154 @@
 +/*
 + * Copyright (c) 1991-1994 by Xerox Corporation.  All rights reserved.
@@ -10615,9 +10615,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/
 +
 +  /* TODO: Add double CAS _acquire/release/full primitives. */
 +#endif /* AO_HAVE_DOUBLE_PTR_STORAGE */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/hexagon.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/hexagon.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/hexagon.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/hexagon.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/hexagon.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/hexagon.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/hexagon.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/hexagon.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,122 @@
 +/*
 + * THIS MATERIAL IS PROVIDED AS IS, WITH ABSOLUTELY NO WARRANTY EXPRESSED
@@ -10741,9 +10741,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/
 +#define AO_HAVE_fetch_compare_and_swap
 +
 +#define AO_T_IS_INT
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/hppa.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/hppa.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/hppa.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/hppa.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/hppa.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/hppa.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/hppa.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/hppa.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,89 @@
 +/*
 + * Copyright (c) 2003 Hewlett-Packard Development Company, L.P.
@@ -10834,9 +10834,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/
 +  *a = 1;
 +}
 +#define AO_CLEAR(addr) AO_pa_clear(addr)
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/ia64.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/ia64.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/ia64.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/ia64.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/ia64.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/ia64.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/ia64.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/ia64.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,281 @@
 +/*
 + * Copyright (c) 2003-2011 Hewlett-Packard Development Company, L.P.
@@ -11119,9 +11119,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/
 +
 +/* TODO: Add compare_and_swap_double as soon as there is widely         */
 +/* available hardware that implements it.                               */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/m68k.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/m68k.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/m68k.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/m68k.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/m68k.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/m68k.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/m68k.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/m68k.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,68 @@
 +/*
 + * Copyright (c) 1991-1994 by Xerox Corporation.  All rights reserved.
@@ -11191,9 +11191,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/
 +/* TODO: implement AO_fetch_compare_and_swap.   */
 +
 +#define AO_T_IS_INT
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/mips.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/mips.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/mips.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/mips.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/mips.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/mips.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/mips.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/mips.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,172 @@
 +/*
 + * Copyright (c) 2005,2007  Thiemo Seufer <ths@networkno.de>
@@ -11367,9 +11367,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/
 +
 +/* FIXME: 32-bit ABI is assumed.    */
 +#define AO_T_IS_INT
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/powerpc.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/powerpc.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/powerpc.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/powerpc.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/powerpc.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/powerpc.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/powerpc.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/powerpc.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,359 @@
 +/*
 + * Copyright (c) 1991-1994 by Xerox Corporation.  All rights reserved.
@@ -11730,9 +11730,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/
 +#endif
 +
 +/* TODO: Implement double-wide operations if available. */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/s390.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/s390.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/s390.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/s390.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/s390.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/s390.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/s390.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/s390.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,65 @@
 +/*
 + * Copyright (c) 1991-1994 by Xerox Corporation.  All rights reserved.
@@ -11799,9 +11799,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/
 +/* TODO: implement AO_fetch_compare_and_swap.   */
 +
 +/* TODO: Add double-wide operations for 32-bit executables.       */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/sh.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/sh.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/sh.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/sh.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/sh.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/sh.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/sh.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/sh.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,34 @@
 +/*
 + * Copyright (c) 2009 by Takashi YOSHII. All rights reserved.
@@ -11837,9 +11837,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/
 +#define AO_HAVE_test_and_set_full
 +
 +/* TODO: Very incomplete.       */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/sparc.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/sparc.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/sparc.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/sparc.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/sparc.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/sparc.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/sparc.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/sparc.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,69 @@
 +/*
 + * Copyright (c) 1991-1994 by Xerox Corporation.  All rights reserved.
@@ -11910,9 +11910,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/
 +/* TODO: Extend this for SPARC v8 and v9 (V8 also has swap, V9 has CAS, */
 +/* there are barriers like membar #LoadStore, CASA (32-bit) and         */
 +/* CASXA (64-bit) instructions added in V9).                            */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/x86.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/x86.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/x86.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/gcc/x86.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/x86.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/x86.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/x86.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/gcc/x86.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,360 @@
 +/*
 + * Copyright (c) 1991-1994 by Xerox Corporation.  All rights reserved.
@@ -12274,9 +12274,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gcc/
 +/* We ignore both the WinChips and the fact that the official specs     */
 +/* seem to be much weaker (and arguably too weak to be usable).         */
 +#include "../ordered_except_wr.h"
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/generic_pthread.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/generic_pthread.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/generic_pthread.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/generic_pthread.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/generic_pthread.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/generic_pthread.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/generic_pthread.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/generic_pthread.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,434 @@
 +/*
 + * Copyright (c) 2003 by Hewlett-Packard Company.  All rights reserved.
@@ -12712,9 +12712,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/gene
 +
 +/* We can't use hardware loads and stores, since they don't     */
 +/* interact correctly with atomic updates.                      */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/hpc/hppa.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/hpc/hppa.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/hpc/hppa.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/hpc/hppa.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/hpc/hppa.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/hpc/hppa.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/hpc/hppa.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/hpc/hppa.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,96 @@
 +/*
 + * Copyright (c) 2003 Hewlett-Packard Development Company, L.P.
@@ -12812,9 +12812,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/hpc/
 +  *a = 1;
 +}
 +#define AO_CLEAR(addr) AO_pa_clear(addr)
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/hpc/ia64.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/hpc/ia64.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/hpc/ia64.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/hpc/ia64.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/hpc/ia64.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/hpc/ia64.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/hpc/ia64.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/hpc/ia64.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,155 @@
 +/*
 + * Copyright (c) 2003-2011 Hewlett-Packard Development Company, L.P.
@@ -12971,9 +12971,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/hpc/
 +#ifndef __LP64__
 +# define AO_T_IS_INT
 +#endif
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/ibmc/powerpc.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/ibmc/powerpc.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/ibmc/powerpc.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/ibmc/powerpc.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/ibmc/powerpc.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/ibmc/powerpc.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/ibmc/powerpc.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/ibmc/powerpc.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,138 @@
 +/* FIXME.  This is only a placeholder for the AIX compiler.             */
 +/* It doesn't work.  Please send a patch.                               */
@@ -13113,9 +13113,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/ibmc
 +#define AO_HAVE_fetch_compare_and_swap_full
 +
 +/* TODO: Implement AO_fetch_and_add, AO_and/or/xor directly.    */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/icc/ia64.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/icc/ia64.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/icc/ia64.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/icc/ia64.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/icc/ia64.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/icc/ia64.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/icc/ia64.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/icc/ia64.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,205 @@
 +/*
 + * Copyright (c) 2003 by Hewlett-Packard Company.  All rights reserved.
@@ -13322,9 +13322,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/icc/
 +  return _InterlockedCompareExchange_rel(addr, new_val, old_val);
 +}
 +#define AO_HAVE_int_fetch_compare_and_swap_release
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/acquire_release_volatile.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/acquire_release_volatile.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/acquire_release_volatile.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/acquire_release_volatile.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/acquire_release_volatile.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/acquire_release_volatile.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/acquire_release_volatile.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/acquire_release_volatile.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,61 @@
 +/*
 + * Copyright (c) 2003-2004 Hewlett-Packard Development Company, L.P.
@@ -13387,9 +13387,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/load
 +  *addr = new_val;
 +}
 +#define AO_HAVE_store_release
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/atomic_load.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/atomic_load.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/atomic_load.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/atomic_load.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/atomic_load.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/atomic_load.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/atomic_load.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/atomic_load.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,37 @@
 +/*
 + * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -13428,9 +13428,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/load
 +  return *(const AO_t *)addr;
 +}
 +#define AO_HAVE_load
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/atomic_store.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/atomic_store.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/atomic_store.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/atomic_store.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/atomic_store.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/atomic_store.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/atomic_store.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/atomic_store.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,35 @@
 +/*
 + * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -13467,9 +13467,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/load
 +  *(AO_t *)addr = new_val;
 +}
 +#define AO_HAVE_store
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_acquire_release_volatile.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_acquire_release_volatile.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_acquire_release_volatile.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_acquire_release_volatile.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_acquire_release_volatile.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_acquire_release_volatile.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_acquire_release_volatile.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_acquire_release_volatile.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,61 @@
 +/*
 + * Copyright (c) 2003-2004 Hewlett-Packard Development Company, L.P.
@@ -13532,9 +13532,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/load
 +  *addr = new_val;
 +}
 +#define AO_HAVE_char_store_release
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_atomic_load.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_atomic_load.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_atomic_load.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_atomic_load.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_atomic_load.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_atomic_load.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_atomic_load.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_atomic_load.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,37 @@
 +/*
 + * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -13573,9 +13573,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/load
 +  return *(const unsigned/**/char *)addr;
 +}
 +#define AO_HAVE_char_load
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_atomic_store.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_atomic_store.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_atomic_store.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_atomic_store.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_atomic_store.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_atomic_store.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_atomic_store.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/char_atomic_store.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,35 @@
 +/*
 + * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -13612,9 +13612,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/load
 +  *(unsigned/**/char *)addr = new_val;
 +}
 +#define AO_HAVE_char_store
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/double_atomic_load_store.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/double_atomic_load_store.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/double_atomic_load_store.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/double_atomic_load_store.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/double_atomic_load_store.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/double_atomic_load_store.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/double_atomic_load_store.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/double_atomic_load_store.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,49 @@
 +/*
 + * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -13665,9 +13665,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/load
 +  ((AO_double_t *)addr)->AO_whole = new_val.AO_whole;
 +}
 +#define AO_HAVE_double_store
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_acquire_release_volatile.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_acquire_release_volatile.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_acquire_release_volatile.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_acquire_release_volatile.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_acquire_release_volatile.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_acquire_release_volatile.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_acquire_release_volatile.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_acquire_release_volatile.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,61 @@
 +/*
 + * Copyright (c) 2003-2004 Hewlett-Packard Development Company, L.P.
@@ -13730,9 +13730,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/load
 +  *addr = new_val;
 +}
 +#define AO_HAVE_int_store_release
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_atomic_load.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_atomic_load.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_atomic_load.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_atomic_load.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_atomic_load.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_atomic_load.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_atomic_load.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_atomic_load.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,37 @@
 +/*
 + * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -13771,9 +13771,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/load
 +  return *(const unsigned *)addr;
 +}
 +#define AO_HAVE_int_load
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_atomic_store.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_atomic_store.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_atomic_store.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_atomic_store.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_atomic_store.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_atomic_store.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_atomic_store.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/int_atomic_store.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,35 @@
 +/*
 + * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -13810,9 +13810,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/load
 +  *(unsigned *)addr = new_val;
 +}
 +#define AO_HAVE_int_store
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/ordered_loads_only.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/ordered_loads_only.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/ordered_loads_only.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/ordered_loads_only.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/ordered_loads_only.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/ordered_loads_only.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/ordered_loads_only.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/ordered_loads_only.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,135 @@
 +/*
 + * Copyright (c) 2003 by Hewlett-Packard Company.  All rights reserved.
@@ -13949,9 +13949,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/load
 +# define AO_double_load_acquire(addr) AO_double_load_read(addr)
 +# define AO_HAVE_double_load_acquire
 +#endif
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/ordered_stores_only.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/ordered_stores_only.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/ordered_stores_only.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/ordered_stores_only.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/ordered_stores_only.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/ordered_stores_only.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/ordered_stores_only.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/ordered_stores_only.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,135 @@
 +/*
 + * Copyright (c) 2003 by Hewlett-Packard Company.  All rights reserved.
@@ -14088,9 +14088,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/load
 +                                (AO_nop_write(), AO_double_store(addr, val))
 +# define AO_HAVE_double_store_release
 +#endif
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_acquire_release_volatile.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_acquire_release_volatile.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_acquire_release_volatile.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_acquire_release_volatile.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_acquire_release_volatile.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_acquire_release_volatile.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_acquire_release_volatile.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_acquire_release_volatile.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,61 @@
 +/*
 + * Copyright (c) 2003-2004 Hewlett-Packard Development Company, L.P.
@@ -14153,9 +14153,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/load
 +  *addr = new_val;
 +}
 +#define AO_HAVE_short_store_release
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_atomic_load.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_atomic_load.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_atomic_load.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_atomic_load.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_atomic_load.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_atomic_load.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_atomic_load.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_atomic_load.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,37 @@
 +/*
 + * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -14194,9 +14194,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/load
 +  return *(const unsigned/**/short *)addr;
 +}
 +#define AO_HAVE_short_load
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_atomic_store.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_atomic_store.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_atomic_store.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_atomic_store.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_atomic_store.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_atomic_store.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_atomic_store.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/loadstore/short_atomic_store.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,35 @@
 +/*
 + * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -14233,9 +14233,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/load
 +  *(unsigned/**/short *)addr = new_val;
 +}
 +#define AO_HAVE_short_store
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/msftc/arm.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/msftc/arm.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/msftc/arm.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/msftc/arm.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/msftc/arm.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/msftc/arm.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/msftc/arm.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/msftc/arm.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,63 @@
 +/*
 + * Copyright (c) 2003 Hewlett-Packard Development Company, L.P.
@@ -14300,9 +14300,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/msft
 +#endif /* _M_ARM < 6 */
 +
 +#define AO_T_IS_INT
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/msftc/common32_defs.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/msftc/common32_defs.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/msftc/common32_defs.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/msftc/common32_defs.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/msftc/common32_defs.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/msftc/common32_defs.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/msftc/common32_defs.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/msftc/common32_defs.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,117 @@
 +/*
 + * Copyright (c) 2003-2011 Hewlett-Packard Development Company, L.P.
@@ -14421,9 +14421,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/msft
 +  }
 +# define AO_HAVE_fetch_compare_and_swap_full
 +#endif /* AO_ASSUME_WINDOWS98 */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/msftc/x86.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/msftc/x86.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/msftc/x86.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/msftc/x86.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/msftc/x86.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/msftc/x86.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/msftc/x86.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/msftc/x86.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,143 @@
 +/*
 + * Copyright (c) 2003 Hewlett-Packard Development Company, L.P.
@@ -14568,9 +14568,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/msft
 +/* We ignore both the WinChips, and the fact that the official specs    */
 +/* seem to be much weaker (and arguably too weak to be usable).         */
 +#include "../ordered_except_wr.h"
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/msftc/x86_64.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/msftc/x86_64.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/msftc/x86_64.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/msftc/x86_64.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/msftc/x86_64.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/msftc/x86_64.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/msftc/x86_64.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/msftc/x86_64.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,193 @@
 +/*
 + * Copyright (c) 2003-2011 Hewlett-Packard Development Company, L.P.
@@ -14765,9 +14765,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/msft
 +# endif /* AO_ASM_X64_AVAILABLE && (_MSC_VER < 1500) */
 +
 +#endif /* AO_CMPXCHG16B_AVAILABLE */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/ordered.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/ordered.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/ordered.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/ordered.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/ordered.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/ordered.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/ordered.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/ordered.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,33 @@
 +/*
 + * Copyright (c) 2003 Hewlett-Packard Development Company, L.P.
@@ -14802,9 +14802,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/orde
 +  AO_compiler_barrier();
 +}
 +#define AO_HAVE_nop_full
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/ordered_except_wr.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/ordered_except_wr.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/ordered_except_wr.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/ordered_except_wr.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/ordered_except_wr.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/ordered_except_wr.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/ordered_except_wr.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/ordered_except_wr.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,42 @@
 +/*
 + * Copyright (c) 2003 by Hewlett-Packard Company.  All rights reserved.
@@ -14848,9 +14848,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/orde
 +#define AO_HAVE_nop_write
 +
 +#include "loadstore/ordered_stores_only.h"
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/read_ordered.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/read_ordered.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/read_ordered.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/read_ordered.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/read_ordered.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/read_ordered.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/read_ordered.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/read_ordered.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,37 @@
 +/*
 + * Copyright (c) 2003 by Hewlett-Packard Company.  All rights reserved.
@@ -14889,9 +14889,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/read
 +#define AO_HAVE_nop_read
 +
 +#include "loadstore/ordered_loads_only.h"
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/standard_ao_double_t.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/standard_ao_double_t.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/standard_ao_double_t.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/standard_ao_double_t.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/standard_ao_double_t.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/standard_ao_double_t.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/standard_ao_double_t.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/standard_ao_double_t.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,62 @@
 +/*
 + * Copyright (c) 2004-2011 Hewlett-Packard Development Company, L.P.
@@ -14955,9 +14955,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/stan
 +
 +#define AO_val1 AO_parts.AO_v1
 +#define AO_val2 AO_parts.AO_v2
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/sunc/sparc.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/sunc/sparc.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/sunc/sparc.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/sunc/sparc.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/sunc/sparc.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/sunc/sparc.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/sunc/sparc.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/sunc/sparc.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,36 @@
 +/*
 + * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -14995,9 +14995,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/sunc
 +#define AO_HAVE_test_and_set_full
 +
 +/* TODO: Like the gcc version, extend this for V8 and V9.   */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/sunc/x86.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/sunc/x86.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/sunc/x86.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/sunc/x86.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/sunc/x86.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/sunc/x86.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/sunc/x86.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/sunc/x86.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,238 @@
 +/*
 + * Copyright (c) 1991-1994 by Xerox Corporation.  All rights reserved.
@@ -15237,9 +15237,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/sunc
 +/* We ignore both the WinChips and the fact that the official specs     */
 +/* seem to be much weaker (and arguably too weak to be usable).         */
 +#include "../ordered_except_wr.h"
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/test_and_set_t_is_ao_t.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/test_and_set_t_is_ao_t.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/test_and_set_t_is_ao_t.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/test_and_set_t_is_ao_t.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/test_and_set_t_is_ao_t.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/test_and_set_t_is_ao_t.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/test_and_set_t_is_ao_t.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/test_and_set_t_is_ao_t.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,36 @@
 +/*
 + * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -15277,9 +15277,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/test
 +#define AO_TS_t AO_t
 +
 +#define AO_AO_TS_T 1
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/test_and_set_t_is_char.h tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/test_and_set_t_is_char.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/test_and_set_t_is_char.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops/sysdeps/test_and_set_t_is_char.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/test_and_set_t_is_char.h tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/test_and_set_t_is_char.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops/sysdeps/test_and_set_t_is_char.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops/sysdeps/test_and_set_t_is_char.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,35 @@
 +/*
 + * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -15316,9 +15316,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops/sysdeps/test
 +#define AO_TS_SET AO_BYTE_TS_set
 +
 +#define AO_CHAR_TS_T 1
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops.h tinySTM-1.0.4/src/atomic_ops/atomic_ops.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops.h	2010-06-04 14:48:47.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops.h tinySTM-1.0.5/src/atomic_ops/atomic_ops.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops.h	2010-06-04 14:48:47.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops.h	2017-03-20 14:48:36.000000000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (c) 2003 Hewlett-Packard Development Company, L.P.
@@ -15678,9 +15678,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops.h tinySTM-1.
  
 -#endif /* ATOMIC_OPS_H */
 +#endif /* !AO_ATOMIC_OPS_H */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops_malloc.h tinySTM-1.0.4/src/atomic_ops/atomic_ops_malloc.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops_malloc.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops_malloc.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops_malloc.h tinySTM-1.0.5/src/atomic_ops/atomic_ops_malloc.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops_malloc.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops_malloc.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,44 @@
 +/*
 + * Copyright (c) 2005 Hewlett-Packard Development Company, L.P.
@@ -15726,9 +15726,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops_malloc.h tin
 +void AO_malloc_enable_mmap(void);
 +
 +#endif /* !AO_MALLOC_H */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops_stack.h tinySTM-1.0.4/src/atomic_ops/atomic_ops_stack.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops_stack.h	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/atomic_ops_stack.h	2017-03-20 14:48:36.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops_stack.h tinySTM-1.0.5/src/atomic_ops/atomic_ops_stack.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/atomic_ops_stack.h	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/atomic_ops_stack.h	2017-03-20 14:48:36.000000000 +0000
 @@ -0,0 +1,188 @@
 +/*
 + * The implementation of the routines described here is covered by the GPL.
@@ -15918,9 +15918,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/atomic_ops_stack.h tiny
 +#endif
 +
 +#endif /* !AO_STACK_H */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/generalize-small.h tinySTM-1.0.4/src/atomic_ops/generalize-small.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/generalize-small.h	2010-06-04 14:48:47.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/generalize-small.h	1970-01-01 01:00:00.000000000 +0100
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/generalize-small.h tinySTM-1.0.5/src/atomic_ops/generalize-small.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/generalize-small.h	2010-06-04 14:48:47.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/generalize-small.h	1970-01-01 01:00:00.000000000 +0100
 @@ -1,1724 +0,0 @@
 -/* char_load */
 -#if defined(AO_HAVE_char_load_acquire) && !defined(AO_HAVE_char_load)
@@ -17646,9 +17646,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/generalize-small.h tiny
 -#    define AO_HAVE_int_fetch_and_sub1_dd_acquire_read
 -#  endif
 -#endif
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/generalize.h tinySTM-1.0.4/src/atomic_ops/generalize.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/generalize.h	2010-06-04 14:48:47.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/generalize.h	1970-01-01 01:00:00.000000000 +0100
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/generalize.h tinySTM-1.0.5/src/atomic_ops/generalize.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/generalize.h	2010-06-04 14:48:47.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/generalize.h	1970-01-01 01:00:00.000000000 +0100
 @@ -1,1355 +0,0 @@
 -/*
 - * Copyright (c) 2003-2004 Hewlett-Packard Development Company, L.P.
@@ -19005,9 +19005,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/generalize.h tinySTM-1.
 -}
 -#define AO_HAVE_double_compare_and_swap_full
 -#endif
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/ia64.h tinySTM-1.0.4/src/atomic_ops/ia64.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/ia64.h	2010-06-04 14:48:47.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/ia64.h	1970-01-01 01:00:00.000000000 +0100
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/ia64.h tinySTM-1.0.5/src/atomic_ops/ia64.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/ia64.h	2010-06-04 14:48:47.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/ia64.h	1970-01-01 01:00:00.000000000 +0100
 @@ -1,297 +0,0 @@
 -/*
 - * Copyright (c) 2003 Hewlett-Packard Development Company, L.P.
@@ -19306,9 +19306,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/ia64.h tinySTM-1.0.4/sr
 -#ifdef _ILP32
 -# include "./ao_t_is_int.h"
 -#endif
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/ordered_except_wr.h tinySTM-1.0.4/src/atomic_ops/ordered_except_wr.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/ordered_except_wr.h	2010-06-04 14:48:47.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/ordered_except_wr.h	1970-01-01 01:00:00.000000000 +0100
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/ordered_except_wr.h tinySTM-1.0.5/src/atomic_ops/ordered_except_wr.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/ordered_except_wr.h	2010-06-04 14:48:47.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/ordered_except_wr.h	1970-01-01 01:00:00.000000000 +0100
 @@ -1,100 +0,0 @@
 -/*
 - * Copyright (c) 2003 by Hewlett-Packard Company.  All rights reserved.
@@ -19410,9 +19410,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/ordered_except_wr.h tin
 -# define AO_HAVE_int_store_release
 -
 -#endif /* AO_HAVE_int_store */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/powerpc.h tinySTM-1.0.4/src/atomic_ops/powerpc.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/powerpc.h	2010-06-04 14:48:47.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/powerpc.h	1970-01-01 01:00:00.000000000 +0100
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/powerpc.h tinySTM-1.0.5/src/atomic_ops/powerpc.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/powerpc.h	2010-06-04 14:48:47.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/powerpc.h	1970-01-01 01:00:00.000000000 +0100
 @@ -1,346 +0,0 @@
 -/*
 - * Copyright (c) 1991-1994 by Xerox Corporation.  All rights reserved.
@@ -19760,9 +19760,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/powerpc.h tinySTM-1.0.4
 -#else
 -# include "./ao_t_is_int.h"
 -#endif
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/read_ordered.h tinySTM-1.0.4/src/atomic_ops/read_ordered.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/read_ordered.h	2010-06-04 14:48:47.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/read_ordered.h	1970-01-01 01:00:00.000000000 +0100
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/read_ordered.h tinySTM-1.0.5/src/atomic_ops/read_ordered.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/read_ordered.h	2010-06-04 14:48:47.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/read_ordered.h	1970-01-01 01:00:00.000000000 +0100
 @@ -1,100 +0,0 @@
 -/*
 - * Copyright (c) 2003 by Hewlett-Packard Company.  All rights reserved.
@@ -19864,9 +19864,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/read_ordered.h tinySTM-
 -#define AO_HAVE_int_load_acquire
 -
 -#endif /* AO_HAVE_int_load */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/sparc.h tinySTM-1.0.4/src/atomic_ops/sparc.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/sparc.h	2010-06-04 14:48:47.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/sparc.h	1970-01-01 01:00:00.000000000 +0100
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/sparc.h tinySTM-1.0.5/src/atomic_ops/sparc.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/sparc.h	2010-06-04 14:48:47.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/sparc.h	1970-01-01 01:00:00.000000000 +0100
 @@ -1,72 +0,0 @@
 -/*
 - * Copyright (c) 1991-1994 by Xerox Corporation.  All rights reserved.
@@ -19940,9 +19940,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/sparc.h tinySTM-1.0.4/s
 -/* There are barriers like membar #LoadStore.                   */
 -/* CASA (32-bit) and CASXA(64-bit) instructions were            */
 -/* added in V9.                                                 */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/standard_ao_double_t.h tinySTM-1.0.4/src/atomic_ops/standard_ao_double_t.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/standard_ao_double_t.h	2010-06-04 14:48:47.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/standard_ao_double_t.h	1970-01-01 01:00:00.000000000 +0100
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/standard_ao_double_t.h tinySTM-1.0.5/src/atomic_ops/standard_ao_double_t.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/standard_ao_double_t.h	2010-06-04 14:48:47.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/standard_ao_double_t.h	1970-01-01 01:00:00.000000000 +0100
 @@ -1,25 +0,0 @@
 -/* NEC LE-IT: For 64Bit OS we extend the double type to hold two int64's
 -*
@@ -19969,9 +19969,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/standard_ao_double_t.h 
 -#define AO_HAVE_double_t
 -#define AO_val1 AO_parts.AO_v1
 -#define AO_val2 AO_parts.AO_v2
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/test_and_set_t_is_ao_t.h tinySTM-1.0.4/src/atomic_ops/test_and_set_t_is_ao_t.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/test_and_set_t_is_ao_t.h	2010-06-04 14:48:47.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/test_and_set_t_is_ao_t.h	1970-01-01 01:00:00.000000000 +0100
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/test_and_set_t_is_ao_t.h tinySTM-1.0.5/src/atomic_ops/test_and_set_t_is_ao_t.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/test_and_set_t_is_ao_t.h	2010-06-04 14:48:47.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/test_and_set_t_is_ao_t.h	1970-01-01 01:00:00.000000000 +0100
 @@ -1,36 +0,0 @@
 -/*
 - * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -20009,9 +20009,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/test_and_set_t_is_ao_t.
 -#define AO_TS_t AO_t
 -
 -#define AO_AO_TS_T 1
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/test_and_set_t_is_char.h tinySTM-1.0.4/src/atomic_ops/test_and_set_t_is_char.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/test_and_set_t_is_char.h	2010-06-04 14:48:47.000000000 +0100
-+++ tinySTM-1.0.4/src/atomic_ops/test_and_set_t_is_char.h	1970-01-01 01:00:00.000000000 +0100
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/test_and_set_t_is_char.h tinySTM-1.0.5/src/atomic_ops/test_and_set_t_is_char.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/test_and_set_t_is_char.h	2010-06-04 14:48:47.000000000 +0100
++++ tinySTM-1.0.5/src/atomic_ops/test_and_set_t_is_char.h	1970-01-01 01:00:00.000000000 +0100
 @@ -1,38 +0,0 @@
 -/*
 - * Copyright (c) 2004 Hewlett-Packard Development Company, L.P.
@@ -20051,9 +20051,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/test_and_set_t_is_char.
 -
 -
 -
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/x86.h tinySTM-1.0.4/src/atomic_ops/x86.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/x86.h	2011-10-31 23:08:28.000000000 +0000
-+++ tinySTM-1.0.4/src/atomic_ops/x86.h	1970-01-01 01:00:00.000000000 +0100
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/x86.h tinySTM-1.0.5/src/atomic_ops/x86.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/x86.h	2011-10-31 23:08:28.000000000 +0000
++++ tinySTM-1.0.5/src/atomic_ops/x86.h	1970-01-01 01:00:00.000000000 +0100
 @@ -1,173 +0,0 @@
 -/*
 - * Copyright (c) 1991-1994 by Xerox Corporation.  All rights reserved.
@@ -20228,9 +20228,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/x86.h tinySTM-1.0.4/src
 -#define AO_HAVE_compare_double_and_swap_double_full
 -
 -#include "./ao_t_is_int.h"
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/x86_64.h tinySTM-1.0.4/src/atomic_ops/x86_64.h
---- tinySTM-1.0.4-prepatch/src/atomic_ops/x86_64.h	2011-10-31 23:08:28.000000000 +0000
-+++ tinySTM-1.0.4/src/atomic_ops/x86_64.h	1970-01-01 01:00:00.000000000 +0100
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/atomic_ops/x86_64.h tinySTM-1.0.5/src/atomic_ops/x86_64.h
+--- tinySTM-1.0.5-prepatch/src/atomic_ops/x86_64.h	2011-10-31 23:08:28.000000000 +0000
++++ tinySTM-1.0.5/src/atomic_ops/x86_64.h	1970-01-01 01:00:00.000000000 +0100
 @@ -1,181 +0,0 @@
 -/*
 - * Copyright (c) 1991-1994 by Xerox Corporation.  All rights reserved.
@@ -20413,9 +20413,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/atomic_ops/x86_64.h tinySTM-1.0.4/
 -#define AO_HAVE_compare_double_and_swap_double_full
 -#endif /* AO_WEAK_DOUBLE_CAS_EMULATION */
 -#endif /* AO_CMPXCHG16B_AVAILABLE */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/src/stm_internal.h tinySTM-1.0.4/src/stm_internal.h
---- tinySTM-1.0.4-prepatch/src/stm_internal.h	2013-01-29 08:33:07.000000000 +0000
-+++ tinySTM-1.0.4/src/stm_internal.h	2017-03-20 20:01:54.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/src/stm_internal.h tinySTM-1.0.5/src/stm_internal.h
+--- tinySTM-1.0.5-prepatch/src/stm_internal.h	2013-01-29 08:33:07.000000000 +0000
++++ tinySTM-1.0.5/src/stm_internal.h	2017-03-20 20:01:54.000000000 +0000
 @@ -957,6 +957,16 @@
    assert((tx->irrevocable & 0x07) != 3);
  #endif /* IRREVOCABLE_ENABLED */
@@ -20448,9 +20448,9 @@ diff -x .git -Naur tinySTM-1.0.4-prepatch/src/stm_internal.h tinySTM-1.0.4/src/s
  
  #if CM == CM_BACKOFF
    /* Simple RNG (good enough for backoff) */
-diff -x .git -Naur tinySTM-1.0.4-prepatch/tinystm-config.cmake tinySTM-1.0.4/tinystm-config.cmake
---- tinySTM-1.0.4-prepatch/tinystm-config.cmake	1970-01-01 01:00:00.000000000 +0100
-+++ tinySTM-1.0.4/tinystm-config.cmake	2017-03-21 15:23:41.000000000 +0000
+diff -x .git -Naur tinySTM-1.0.5-prepatch/tinystm-config.cmake tinySTM-1.0.5/tinystm-config.cmake
+--- tinySTM-1.0.5-prepatch/tinystm-config.cmake	1970-01-01 01:00:00.000000000 +0100
++++ tinySTM-1.0.5/tinystm-config.cmake	2017-03-21 15:23:41.000000000 +0000
 @@ -0,0 +1,4 @@
 +get_filename_component(SELF_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
 +include(${SELF_DIR}/tinystm.cmake)

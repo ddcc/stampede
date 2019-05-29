@@ -25470,7 +25470,7 @@ diff -x .git -x inputs -Naur stamp-0.9.10/yada/mesh.h stamp-g/yada/mesh.h
 +      return element_mapCompareEdge(a, b) < 0;
 +    }
 +  };
-+  typedef std::pair<edge_t*, element_t*> MapPair;
++  typedef std::pair<edge_t* const, element_t*> MapPair;
 +  typedef Galois::PerIterAllocTy::rebind<MapPair>::other MapAllocator;
 +
 +  typedef std::map<edge_t*,element_t*,Comparator,MapAllocator> Map;

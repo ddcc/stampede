@@ -16,6 +16,7 @@ find_package(Threads REQUIRED)
 find_package(Galois REQUIRED NO_CMAKE_PACKAGE_REGISTRY)
 if(USE_STM)
   find_package(tinystm REQUIRED NO_CMAKE_PACKAGE_REGISTRY)
+  include_directories("${tinystm_INCLUDE_DIRS}")
 endif()
 
 set(CMAKE_CXX_COMPILER ${Galois_CXX_COMPILER})
