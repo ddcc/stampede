@@ -89,15 +89,15 @@ def run(cmd, values, envs, options):
 
   for R in range(options.runs):
     if is_tty:
-      print_bright('RUN: Start')
+      print_bright('RUN,Start')
     else:
-      print('RUN: Start')
-    print("RUN: CommandLine %s" % ' '.join(cmd))
-    print("RUN: Variable Hostname = %s" % socket.gethostname())
-    print("RUN: Variable Timestamp = %f" % time.time())
+      print('RUN,Start')
+    print("RUN,CommandLine,%s" % ' '.join(cmd))
+    print("RUN,Hostname,%s" % socket.gethostname())
+    print("RUN,Timestamp,%f" % time.time())
 
     for (name, value) in values:
-      print('RUN: Variable %s = %s' % (name, value))
+      print('RUN,%s,%s' % (name, value))
 
     if options.timeout:
       start = datetime.datetime.now()
@@ -110,14 +110,14 @@ def run(cmd, values, envs, options):
           os.kill(process.pid, signal.SIGKILL)
           #os.waitpid(-1, os.WNOHANG)
           os.waitpid(-1, 0)
-          print("RUN: Variable Timeout = %d" % (diff*1000))
+          print("RUN,Timeout,%d" % (diff*1000))
           break
       retcode = process.returncode
     else:
       retcode = subprocess.call(cmd, env=new_env)
     if retcode != 0:
       # print command line just in case child process should be died before doing it
-      print("RUN: Error %s" % retcode)
+      print("RUN,Error,%s" % retcode)
       if not options.ignore_errors:
         sys.exit(1)
 
