@@ -26,30 +26,38 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "XL")
       -DCMAKE_TOOLCHAIN_FILE=${PROJECT_SOURCE_DIR}/Galois-2.2.1/cmake/Toolchain/ppc64-bgq-linux-xlc.cmake")
 endif()
 
-ExternalProject_Add(tinystm
-  PREFIX tinystm
-  SOURCE_DIR ${PROJECT_SOURCE_DIR}/tinySTM-1.0.5
-  CMAKE_ARGS 
-    -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-    -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/tinystm)
+if(USE_TINYSTM)
+  ExternalProject_Add(tinystm
+    PREFIX tinystm
+    SOURCE_DIR ${PROJECT_SOURCE_DIR}/tinySTM-1.0.5
+    CMAKE_ARGS 
+      -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+      -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/tinystm)
 
-# Force check of tinySTM changes for every make
-ExternalProject_Add_Step(tinystm forceconfigure
-    DEPENDEES update
-    DEPENDERS configure
-    ALWAYS 1)
+  # Force check of tinySTM changes for every make
+  ExternalProject_Add_Step(tinystm forceconfigure
+      DEPENDEES update
+      DEPENDERS configure
+      ALWAYS 1)
 
-ExternalProject_Get_Property(tinystm install_dir)
-set(tinystm_install_dir ${install_dir})
+  ExternalProject_Get_Property(tinystm install_dir)
+  set(tinystm_install_dir ${install_dir})
+
+  set(GALOIS_DEPS "tinystm")
+  set(TINYSTM_CMAKE_EXPORT "${tinystm_install_dir}/cmake/tinystm")
+else()
+  set(GALOIS_DEPS "")
+  set(TINYSTM_CMAKE_EXPORT "")
+endif()
 
 ExternalProject_Add(Galois
-  DEPENDS tinystm
+  DEPENDS ${GALOIS_DEPS}
   PREFIX Galois
   SOURCE_DIR ${PROJECT_SOURCE_DIR}/Galois-2.2.1
   CMAKE_ARGS
     ${GaloisExtraArgs}
     -Wno-dev
-    -DTINYSTM_CMAKE_EXPORT=${tinystm_install_dir}/cmake/tinystm
+    -DTINYSTM_CMAKE_EXPORT=${TINYSTM_CMAKE_EXPORT}
     -DSKIP_COMPILE_APPS=1
     -DUSE_HWTOPO=${USE_HWTOPO}
     -DUSE_LONGJMP=1
@@ -75,12 +83,12 @@ ExternalProject_Get_Property(Galois install_dir)
 set(galois_install_dir ${install_dir})
 
 ExternalProject_Add(benchmarks
-  DEPENDS tinystm Galois
+  DEPENDS ${GALOIS_DEPS} Galois
   PREFIX benchmarks
   SOURCE_DIR ${PROJECT_SOURCE_DIR}/benchmarks
   CMAKE_ARGS
     -DGALOIS_CMAKE_EXPORT=${galois_install_dir}/cmake/Galois
-    -DTINYSTM_CMAKE_EXPORT=${tinystm_install_dir}/cmake/tinystm
+    -DTINYSTM_CMAKE_EXPORT=${TINYSTM_CMAKE_EXPORT}
     -DUSE_HTM=${USE_HTM}
     -DUSE_STM=${USE_STM}
     -DUSE_XTM=${USE_XTM}

@@ -43,14 +43,14 @@ typedef union stm_tx_attr {
 
 void *stm_malloc(size_t size);
 void stm_free(void *addr, size_t size);
-void mod_mem_init(int gc);
+void mod_mem_init();
 void mod_stats_init(void);
 // global_nb_commits
 // global_nb_aborts
 // global_max_retries
 int stm_get_global_stats(const char *name, unsigned long *val);
 
-void stm_init(void);
+void stm_init(void *);
 void stm_exit(void);
 void stm_abort(int abort_reason);
 int stm_commit(void);
@@ -58,13 +58,13 @@ struct stm_tx *stm_init_thread(void);
 void stm_exit_thread(void);
 sigjmp_buf *stm_start(stm_tx_attr_t attr);
 
-stm_word_t stm_load(volatile stm_word_t *addr);
-float stm_load_float(volatile float *addr);
-void *stm_load_ptr(volatile void **addr);
+stm_word_t stm_load(const stm_word_t *addr);
+float stm_load_float(const float *addr);
+void *stm_load_ptr(const void **addr);
 
-void stm_store(volatile stm_word_t *addr, stm_word_t value);
-void stm_store_float(volatile float *addr, float value);
-void stm_store_ptr(volatile void **addr, void *value);
+void stm_store(stm_word_t *addr, stm_word_t value);
+void stm_store_float(float *addr, float value);
+void stm_store_ptr(void **addr, void *value);
 
 #ifdef __cplusplus
 }

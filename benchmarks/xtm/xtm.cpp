@@ -210,7 +210,7 @@ static Galois::Runtime::LL::SimpleLock allTxLock;
 static std::list<stm_tx*> allTx;
 static __thread stm_tx* myTx;
 
-void stm_init(void) {
+void stm_init(void *pmem) {
 #ifndef XTM_USE_INLINE_LOCKABLE
   lockTable = new LockTable();
 #endif
@@ -228,7 +228,7 @@ void *stm_malloc(size_t size) {
 
 void stm_free(void *addr, size_t size) { }
 
-void mod_mem_init(int gc) {
+void mod_mem_init() {
   // FIXME(ddn): only allocates on one thread
   Galois::Runtime::MM::pagePreAlloc(16);
 }
@@ -282,26 +282,26 @@ sigjmp_buf *stm_start(stm_tx_attr_t attr) {
   return myTx->start();
 }
 
-stm_word_t stm_load(volatile stm_word_t *addr) {
+stm_word_t stm_load(const stm_word_t *addr) {
   return *myTx->acquire_word((void*) addr);
 }
 
-float stm_load_float(volatile float *addr) {
+float stm_load_float(const float *addr) {
   return *myTx->acquire_float((void*) addr);
 }
 
-void *stm_load_ptr(volatile void **addr) {
+void *stm_load_ptr(const void **addr) {
   return (void*) *myTx->acquire_word((void*) addr);
 }
 
-void stm_store(volatile stm_word_t *addr, stm_word_t value) {
+void stm_store(stm_word_t *addr, stm_word_t value) {
   *myTx->acquire_word((void*) addr) = value;
 }
 
-void stm_store_float(volatile float *addr, float value) {
+void stm_store_float(float *addr, float value) {
   *myTx->acquire_float((void*) addr) = value;
 }
 
-void stm_store_ptr(volatile void **addr, void *value) {
+void stm_store_ptr(void **addr, void *value) {
   *myTx->acquire_word((void*) addr) = (stm_word_t) value;
 }
