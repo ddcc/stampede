@@ -45,9 +45,26 @@ if(USE_TINYSTM)
 
   set(GALOIS_DEPS "tinystm")
   set(TINYSTM_CMAKE_EXPORT "${tinystm_install_dir}/cmake/tinystm")
-else()
-  set(GALOIS_DEPS "")
-  set(TINYSTM_CMAKE_EXPORT "")
+elseif(USE_XTM)
+  ExternalProject_Add(xtm
+    PREFIX xtm
+    SOURCE_DIR ${PROJECT_SOURCE_DIR}/benchmarks/xtm
+    CMAKE_ARGS
+      -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+      -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/xtm
+      -DUSE_XTM_INLINE=${USE_XTM_INLINE})
+
+  # Force check of tinySTM changes for every make
+  ExternalProject_Add_Step(xtm forceconfigure
+      DEPENDEES update
+      DEPENDERS configure
+      ALWAYS 1)
+
+  ExternalProject_Get_Property(xtm install_dir)
+  set(xtm_install_dir ${install_dir})
+
+  set(GALOIS_DEPS "xtm")
+  set(TINYSTM_CMAKE_EXPORT "${xtm_install_dir}/cmake/xtm")
 endif()
 
 ExternalProject_Add(Galois
@@ -68,7 +85,6 @@ ExternalProject_Add(Galois
     -DUSE_ABORT_POLICY_DOUBLE=${USE_ABORT_POLICY_DOUBLE}
     -DUSE_TINYSTM=${USE_TINYSTM}
     -DUSE_TINYSTM_XTM=${USE_XTM}
-    -DUSE_TINYSTM_XTM_INLINE=${USE_XTM_INLINE}
     -DUSE_HTM=${USE_HTM}
     -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/Galois
     -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE})

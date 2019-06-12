@@ -17,14 +17,13 @@ find_package(Galois REQUIRED NO_CMAKE_PACKAGE_REGISTRY)
 if(USE_STM)
   find_package(tinystm REQUIRED NO_CMAKE_PACKAGE_REGISTRY)
   include_directories("${tinystm_INCLUDE_DIRS}")
+elseif(USE_XTM)
+  find_package(xtm REQUIRED NO_CMAKE_PACKAGE_REGISTRY)
+  include_directories("${xtm_INCLUDE_DIRS}")
 endif()
 
 set(CMAKE_CXX_COMPILER ${Galois_CXX_COMPILER})
 set(CMAKE_CXX_FLAGS "${Galois_CXX_FLAGS} ${CMAKE_CXX_FLAGS}")
-
-add_subdirectory(xtm)
-set(XTM_LIBRARIES xtm)
-get_filename_component(XTM_INCLUDE_DIRS xtm/include REALPATH)
 
 add_subdirectory(stamp-0.9.10)
 add_subdirectory(stamp-grun)
