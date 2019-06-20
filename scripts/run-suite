@@ -32,6 +32,11 @@ CommandTableLarge = [{
   'args': '-v32 -r4096 -n10 -p40 -i2 -e8 -s1',
   'type': 'stamp'
 }, {
+  'name': 'canneal',
+  'altThreads': '',
+  'args': '5 100 %(inputsDir)s/../parsec-2.1/pkgs/kernels/canneal/inputs/10.nets 1',
+  'type': 'parsec'
+}, {
   'name': 'genome',
   'args': '-g16384 -s64 -n16777216',
   'type': 'stamp'
@@ -81,6 +86,11 @@ CommandTableSmall = [{
   'name': 'bayes',
   'args': '-v32 -r1024 -n2 -p20 -s0 -i2 -e2',
   'type': 'stamp'
+}, {
+  'name': 'canneal',
+  'altThreads': '',
+  'args': '5 100 %(inputsDir)s/../parsec-2.1/pkgs/kernels/canneal/inputs/10.nets 1',
+  'type': 'parsec'
 }, {
   'name': 'genome',
   'args': '-g256 -s16 -n16384',
@@ -214,6 +224,8 @@ def getCommandLine(opts):
 
     if 'altThreads' in opts:
         t['threads'] = '--no-default-thread -x Threads::%s::%s' % (opts['altThreads'], opts['threads'])
+    else:
+        t['threads'] = '--append-arguments'
 
     name = opts['name']
     if 'pname' in opts:
@@ -221,10 +233,11 @@ def getCommandLine(opts):
 
     postfix = ''
 
-    if opts['variant'] == 'stamp-g':
-        postfix = 'g'
-    elif opts['variant'] == 'stamp-grun':
-        postfix = 'grun'
+    if name != 'canneal':
+        if opts['variant'] == 'stamp-g':
+            postfix = 'g'
+        elif opts['variant'] == 'stamp-grun':
+            postfix = 'grun'
 
     t['cmd'] = os.path.join(opts['directory'], "benchmarks", "bin", name+postfix)
     if opts['useSBatch']:
@@ -235,7 +248,7 @@ def getCommandLine(opts):
         t['extra'] = '--timeout 600 -e STM_STATS::STM_STATS::1 -e TM_STATISTICS::TM_STATISTICS::1'
 
     t['args'] = opts['args'] % t
-    return '%(run)s --append-arguments %(extra)s %(threads)s %(scrub)s -- %(srun)s %(cmd)s %(args)s' % t
+    return '%(run)s %(extra)s %(threads)s %(scrub)s -- %(srun)s %(cmd)s %(args)s' % t
 
 
 def getVariants(kind):
